@@ -2,8 +2,16 @@
 name = "resume-keyword-injector"
 version = "1.0.0"
 description = "Add invisible ATS-friendly keywords to PDF resumes"
-author = [{name="simon198", email = "c121549443@gmail.com"}]
-keywords = ["pdf", "resume", "ats", "keyword", "optimization", "job-search", "python"]
+author = [{ name = "simon198", email = "c121549443@gmail.com" }]
+keywords = [
+    "pdf",
+    "resume",
+    "ats",
+    "keyword",
+    "optimization",
+    "job-search",
+    "python",
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
@@ -28,16 +36,14 @@ dependencies = [
 
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=7.0.0",
-]
+dev = ["pytest>=7.0.0"]
 
 [project.scripts]
-resume-keyword-injector = "src.keyword_generator.main:main"
-keyword-injector = "src.keyword_generator.main:main"
+resume-keyword-injector = "keyword_generator.main:main"
+keyword-injector = "keyword_generator.main:main"
 
 [project.urls]
-Homepage = "https://github.com/SimonOneNineEight/resume-keyword-injector",
+Homepage = "https://github.com/SimonOneNineEight/resume-keyword-injector"
 Repository = "https://github.com/SimonOneNineEight/resume-keyword-injector"
 
 [build-system]
@@ -45,4 +51,19 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src.keyword_generator"]
+packages = ["src/keyword_generator"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.claude",
+  "/tests", 
+  "/test_keyword_check.py",
+  "/.python-version",
+  "/uv.lock",
+  "/.gitignore",
+  "/CLAUDE.md",
+  "**/__pycache__",
+  "**/*.pyc",
+  "**/*.pyo",
+  "**/*.pyd",
+]

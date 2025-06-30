@@ -1,0 +1,48 @@
+# Include essential distribution files
+include README.md
+include LICENSE
+include CHANGELOG.md
+
+# Include source code only
+recursive-include src/keyword_generator *.py
+
+# Explicitly exclude everything else
+prune tests
+prune .git
+prune .github
+
+# Exclude Python cache and compiled files
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude *.pyd
+
+# Exclude development files
+exclude test_keyword_check.py
+exclude .gitignore
+exclude uv.lock
+exclude CLAUDE.md
+
+# Exclude OS and IDE files
+global-exclude .DS_Store
+global-exclude .DS_Store?
+global-exclude ._*
+global-exclude .Spotlight-V100
+global-exclude .Trashes
+global-exclude ehthumbs.db
+global-exclude Thumbs.db
+global-exclude *.swp
+global-exclude *.swo
+global-exclude *~
+
+# Exclude build artifacts
+global-exclude *.egg-info
+prune build
+prune dist
+
+# Exclude temporary files
+global-exclude *.tmp
+global-exclude *.log
+global-exclude .pytest_cache
+global-exclude .coverage
+global-exclude htmlcov
